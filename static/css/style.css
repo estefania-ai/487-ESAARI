@@ -4,10 +4,17 @@ html{
 h1{
   margin: 5% 0;
   text-align: center;
+
 }
 .wrapper{
   margin: auto auto;
   width: fit-content;
+}
+
+.content{
+  display: block;
+  width: 50%;
+  margin: auto auto;
 }
 .box1 {
   position: relative;
@@ -41,6 +48,7 @@ h1{
 
 button{
   position:relative; 
+  display: block;
   background-color: #207014; /* #4CAF50 */
   color: white;
   text-align: center;
@@ -49,6 +57,7 @@ button{
   width: 136px;
   height: 50px;
   left:auto;
+  margin: 10px auto;
 }
 .vertical-center {
   margin: 0;
@@ -56,4 +65,18 @@ button{
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+input[type=text], [type=email], [type=password]{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin: 10px auto;
+}
+
+a{
+  text-decoration: none;
 }

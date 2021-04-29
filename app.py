@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy 
 from datetime import datetime
 
@@ -21,7 +21,28 @@ def __repr__(self):
 @app.route('/', methods=['POST', 'GET'] )
 
 def index():
+  if request.method=="POST":
+    pass
+  else:
+    pass
   return render_template('index.html')
+
+@app.route('/loginpage/')
+def login():
+  return render_template('login.html')
+
+@app.route('/create/')
+def create():
+  if request.method=="POST":
+    pass
+  return render_template('create.html')
+
+@app.route('/reqride/')
+def loginnext():
+  return render_template('requestride.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
+
+
+

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>LOGIN</title>
+{% endblock %}
+{% block body %}
+
+<h1>LOGIN</h1>
+<div class="content">
+<form action="{{ url_for('loginnext')}}" method="POST" class="content" >
+  <input type="text" name="username" id="username" placeholder="username">
+  <input type="text" name="password" id="password" placeholder="password">
+  <button type="submit" value="continue_login">CONTINUE</button>
+</form>
+</div>
+
+{% endblock %}
