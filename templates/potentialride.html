@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>REQUEST</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <b>Welcome, Driver!</b>
+<form action="{{ url_for('potential_ride')}}" method="POST" class="content" >
+    <b>Please set your current location:</b>
+    <br>
+    <input type="text" name="Current Location" id="driverStartingLocation" placeholder="Starting Location">
+    <br>
+    <b>Please set the maximum radius you're willing to drive today:</b>
+    <br>
+    <input type="number" name="Driver Radius" id="driverRadius" placeholder="0">
+    <b>miles</b>
+    <button type="submit" value="driverLocation">Submit</button>
+</form>
+</div>
+{% endblock %}
