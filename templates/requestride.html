@@ -5,5 +5,15 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="content">
+<form action="{{ url_for('potential_ride')}}" method="POST" class="content" >
+    <b>Starting Location</b>
+    <input type="text" name="Starting Location" id="riderStartingLocation" placeholder="starting location">
+    <b>Ending Location</b>
+    <input type="text" name="Ending Location" id="riderEndingLocation" placeholder="ending location">
+    <b>Number of Passengers</b>
+    <input type="number" name="Number of Passengers" id="passengerAmount" min="1" max = "4">
+  <button type="submit" value="request_ride">Request Ride</button>
+</form>
+</div>
 {% endblock %}
