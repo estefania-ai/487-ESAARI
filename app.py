@@ -37,7 +37,13 @@ def create():
     pass
   return render_template('create.html')
 
-@app.route('/reqride/')
+@app.route('/createcont/', methods=['POST'])
+def createtwo():
+  if request.method=="POST":
+    pass
+  return render_template('create2.html')
+
+@app.route('/reqride/', methods=['POST'])
 def loginnext():
   return render_template('requestride.html')
 
