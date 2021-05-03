@@ -40,12 +40,22 @@ def create():
 @app.route('/createcont/', methods=['POST'])
 def createtwo():
   if request.method=="POST":
-    pass
+    account_name= request.form['name']
+    account_email= request.form['email']
+    account_pass= request.form['password']
   return render_template('create2.html')
 
 @app.route('/reqride/', methods=['POST'])
 def loginnext():
   return render_template('requestride.html')
+
+@app.route('/choosedriver/', methods=['POST'])
+def selectdriver():
+  return render_template('choosedriver.html')
+
+@app.route('/confirmride/', methods=['POST'])
+def confirmride():
+  return render_template('riderconfirmation.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
