@@ -7,11 +7,15 @@
 {% block body %}
 <h1>CREATE ACCOUNT</h1>
 <div class="content">
-  <form action="/" method="POST" class="content" >
+  <form action="{{ url_for('login')}}" method="POST" class="content" >
     <input type="text" name="cardname" id="cardname" placeholder="Cardholder's Name">
     <input type="number" name="cardnumber" id="cardnumber" placeholder="Card Number">
     <input type="date" name="expdate" id="expdate" placeholder="experation date">
     <input type="number" name="cvc" id="cvc" placeholder="CVC">
+    <input type="checkbox" id="driver" name="driver" value="driver">
+    <label for="driver"> I am a Driver</label><br>
+    <input type="checkbox" id="rider" name="rider" value="rider">
+    <label for="rider"> I am a Rider</label>
     <button type="submit" value="creatact">CREATE ACCOUNT</button>
   </form>
   </div>

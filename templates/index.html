@@ -9,12 +9,16 @@
 <div class='wrapper'>
   <div class="box1">
     <div class="vertical-center">
-      <a href="{{ url_for('login')}}"><button>Login</button></a>
+      <form method ="post" action="/">
+        <button type="submit" name="submit_a" value="submit_a"> Login </button>
+      </form> 
     </div>
   </div>
   <div class="box2">
     <div class="vertical-center">
-      <a href="{{ url_for('create')}}"><button>Sign-up</button></a>
+      <form method ="post" action="/">
+        <button type="submit" name="submit_b" value="submit_b"> Sign-up </button>
+      </form> 
     </div>
   </div>
 </div>

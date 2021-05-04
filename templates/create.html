@@ -7,12 +7,19 @@
 {% block body %}
 <h1>CREATE ACCOUNT</h1>
 <div class="content">
-  <form action="{{ url_for('createtwo')}}" method="POST" class="content" >
+  <form action="{{ url_for('create')}}" method="POST" class="content" >
     <input type="text" name="name" id="name" placeholder="name">
     <input type="email" name="email" id="email" placeholder="email">
     <input type="password" name="password" id="password" placeholder="password">
-    <input type="password" name="password_conf" id="password_conf" placeholder="confirm password">
-    <a href="{{ url_for('createtwo')}}"><button type="submit" value="continue_login">CONTINUE</button></a>
+    <input type="text" name="cardname" id="cardname" placeholder="Cardholder's Name">
+    <input type="number" name="cardnumber" id="cardnumber" placeholder="Card Number">
+    <input type="date" name="expdate" id="expdate" placeholder="experation date">
+    <input type="number" name="cvc" id="cvc" placeholder="CVC">
+    <input type="checkbox" id="driver" name="driver" value="driver">
+    <label for="driver"> I am a Driver</label><br>
+    <input type="checkbox" id="rider" name="rider" value="rider">
+    <label for="rider"> I am a Rider</label>
+    <button type="submit" name="continue_login"value="continue_login">CONTINUE</button></a>
   </form>
   </div>
 {% endblock %}
