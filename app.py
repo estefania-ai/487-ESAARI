@@ -69,22 +69,33 @@ def login():
     print(em)
     passw=request.form['password']
     print(passw)
+    kind="none"
     def validate_login(db,username, password):
       sql_string="select id,email,password from Rider;"
       results= db.engine.execute(sql_string)
       for row in results:
-          user_id=row.id
-          #pdb.set_trace()
+          #user_id=row.id
           if username == row.email and password == row.password:
-              return user_id
+            return "rider"
+            #return user_id
+      sql_stringdriver="select id,email,password from Driver;"
+      resultsdriver= db.engine.execute(sql_stringdriver)
+      for row in resultsdriver:
+          #user_id=row.id
+          if username == row.email and password == row.password:
+            return "driver"
+            #return user_id
       return 0
-    user_id=validate_login(db, em,passw)
-    print("user id"+ str(user_id))
-    if user_id==0:
+    user_id = validate_login(db, em,passw)
+    print("user id "+ str(user_id))
+    if user_id=="rider":
+      return redirect(url_for('loginnext'))
+    if user_id =="driver":
+      return redirect(url_for('potential'))
+    else:
       print("invalid user")
       return render_template('login.html')
-    else:
-      return render_template('requestride.html')
+    
     
 
 
@@ -138,66 +149,57 @@ def create():
 
   return redirect(url_for('login'))
 
-@app.route('/createcont/', methods=['POST'])
-def createtwo():
+
+
+@app.route('/reqride/', methods=['POST', 'GET'])
+def loginnext():
   if request.method=="GET":
-    return render_template("create2.html")
+    return render_template('requestride.html')
+  if request.method=="POST":
+    return redirect(url_for('selectdriver'))
+
+@app.route('/potential/', methods=['POST', "GET"])
+def potential():
+  if request.method=="GET":
+    return render_template('potentialride.html')
+  if request.method=="POST":
+    return redirect(url_for('selectrider'))
+  
+@app.route('/chooserider/', methods=['POST', "GET"])
+def selectrider():
+  if request.method=="GET":
+    return render_template('chooserider.html')
+  if request.method=="POST":
+    return redirect(url_for('confirmpass'))
+
+@app.route('/confirmpass/', methods=['POST', "GET"])
+def confirmpass():
+  if request.method=="GET":
+    return render_template('driverconfirmation.html')
   if request.method=="POST":
     pass
-    if request.form['rider'].checked:
-      new_rider=Rider(name=name, email=email, password=password,cardname=cardname, cardnum=cardnum)
-      try:
-        db.session.add(new_rider)
-        db.session.commit()
-        print('rider added')
-      except:
-        return 'There was an issue adding rider'
 
-    if request.form['driver'].checked:
-      new_driver=Driver(name=name, email=email, password=password,cardname=cardname, cardnum=cardnum, rating=0)
-      try:
-        db.session.add(new_driver)
-        db.session.commit()
-        print('driver added')
-      except:
-        return 'There was an issue adding your driver'
-
-  print("before riders next")
-  sql_string3="select * from Rider;"
-  resultsRider= db.engine.execute(sql_string3)
-  for row in resultsRider:
-    print(row)
-  sql_string2="select * from Driver;"
-  resultsDriver= db.engine.execute(sql_string2)
-  for row in resultsDriver:
-    print(row)
-  print("after")
-
-
-def validate_login(db,username, password):
-    sql_string="select id,email,password from Rider;"
-    results= db.engine.execute(sql_string)
-    for row in results:
-        user_id=row.id
-        #pdb.set_trace()
-        if username == row.email and password == row.password:
-            return user_id
-    return 0
-@app.route('/reqride/', methods=['POST'])
-def loginnext():
-  user_id=validate_login
-  if user_id==0:
-    return render_template('login.html')
-  else:
-    return render_template('requestride.html')
-
-@app.route('/choosedriver/', methods=['POST'])
+@app.route('/choosedriver/', methods=['POST', "GET"])
 def selectdriver():
-  return render_template('choosedriver.html')
+  if request.method=="GET":
+    return render_template('choosedriver.html')
+  if request.method=="POST":
+    return redirect(url_for('confirmride'))
 
-@app.route('/confirmride/', methods=['POST'])
+@app.route('/confirmride/', methods=['POST', "GET"])
 def confirmride():
-  return render_template('riderconfirmation.html')
+  if request.method=="GET":
+    return render_template('riderconfirmation.html')
+  if request.method=="POST":
+    return redirect(url_for('ratedriver'))
+
+@app.route('/rate/', methods=['POST', "GET"])
+def ratedriver():
+  if request.method=="GET":
+    return render_template('rateride.html')
+  if request.method=="POST":
+    pass
+
 
 if __name__ == "__main__":
   app.run(debug=True)

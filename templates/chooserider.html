@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>CHOOSE DRIVER</title> <!--This title shows up on the browser tab-->
+<title>CHOOSE PASSENGER</title> <!--This title shows up on the browser tab-->
 {% endblock %}
-<h1>CHOOSE A DRIVER</h1>
+{% block body %}
+<h1>CHOOSE A PASSENGER</h1>
 <div class= "wrapper">
+<form action="{{ url_for('selectrider')}}" method="POST" class="content" >
 <select size="5" class="driverlist">
   <option>Destination: 1.7 mi away 3333 South State Street, Chicago, IL 60616   ETA:8min    Ride Sharing   $14.34</option>
     <option>Destination: 1.8 mi away 3201 South State Street, Chicago, IL 60616   ETA:9min    Ride Sharing   $19.34</option>
@@ -12,6 +14,7 @@
     <option>Destination: 0.9 mi away 1200 Lake Shore Drive, Chicago, IL 60605   ETA:3min                   $24.98</option>
 </select>
   <input class="RequestButton" type="submit" name="ACCEPTREQBUTTON"  value="ACCEPT REQUEST" style="font-size:20px;"/> 
+</form>
   </div>
 </div>
 {% endblock %}
