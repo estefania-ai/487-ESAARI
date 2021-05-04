@@ -5,19 +5,15 @@
 {% endblock %}
 
 {% block body %}
+<h1>Rate Your Driver</h1>
 <div class="content">
 <form action="{{ url_for('')}}" method="POST" class="content" >
     <b>How would you rate your ride today?</b>
     <input type="radio" name="driverRideRating" value="1star">1
-    <br>
     <input type="radio" name="driverRideRating" value="2star">2
-    <br>
     <input type="radio" name="driverRideRating" value="3star">3
-    <br>
     <input type="radio" name="driverRideRating" value="4star">4
-    <br>
     <input type="radio" name="driverRideRating" value="5star">5
-    <br>
     <button type="submit" value="passengerRating">Submit</button>
 </form>
 </div>
