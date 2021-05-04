@@ -7,7 +7,8 @@
 {% block body %}
 <h1>Welcome, Driver!</h1>
 <div class="content">
-<form action="{{ url_for('potential')}}" method="POST" class="content" >
+    <div class = "wrapper">
+<form action="/" method="POST" class="content" >
     <b>Please set your current location:</b>
     <br>
     <input type="text" name="Current Location" id="driverStartingLocation" placeholder="Starting Location">
