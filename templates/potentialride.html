@@ -7,10 +7,13 @@
 {% block body %}
 <h1>Welcome, Driver!</h1>
 <div class="content">
+    <div class = "wrapper">
 <form action="/" method="POST" class="content" >
     <b>Please set your current location:</b>
     <br>
     <input type="text" name="Current Location" id="driverStartingLocation" placeholder="Starting Location">
+    <br>
+    <br>
     <br>
     <b>Please set the maximum radius you're willing to drive today:</b>
     <br>
@@ -18,5 +21,6 @@
     <b>miles</b>
     <button type="submit" value="driverLocation">Submit</button>
 </form>
+</div>
 </div>
 {% endblock %}
