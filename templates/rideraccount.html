@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ACCOUNT</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+  <div class = "wrapper">
+      <!--This button should lead to the rider account page (current page)-->
+	<form action="{{ url_for('rideraccount')}}" method="POST" class="content" >
+		<button type="submit" value="rideraccount">My Account</button>
+	</form>
+    <!--This button should lead to the Request Ride page-->
+	<form action="{{ url_for('requestride')}}" method="POST" class="content" >
+		<button type="submit" value="request_ride">Request Ride</button>
+	</form>
+  </div>
+</div>
+<h1>Rider Account</h1>
+<div class="content">
+<div class="wrapper">
+  <div class="vertical-center">
+    <h4>Name: Rider</h4>
+    <h4>Payment Method: Credit Card</h4>
+    <h4>Rides taken: 1</h4>
+    <h4>Amount Spent: $19.44</h4>
+    <br>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

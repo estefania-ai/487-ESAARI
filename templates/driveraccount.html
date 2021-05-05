@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ACCOUNT</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+  <div class = "wrapper">
+      <!--This button should lead to the driver account page (current page)-->
+	<form action="{{ url_for('driveraccount')}}" method="POST" class="content" >
+		<button type="submit" value="driveraccount">My Account</button>
+	</form>
+    <!--This button should lead to potential rides page (where they set starting address and radius)-->
+	<form action="{{ url_for('potentialride')}}" method="POST" class="content" >
+		<button type="submit" value="choose_rider">Potential Rides</button> 
+	</form>
+  </div>
+</div>
+<h1>Rider Account</h1>
+<div class="content">
+<div class="wrapper">
+  <div class="vertical-center">
+    <h4>Name: Driver</h4>
+    <h4>Payment Receipt Method: Credit Card</h4>
+    <h4>Rides given: 1</h4>
+    <h4>Amount Earned: $24.44</h4>
+    <br>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
