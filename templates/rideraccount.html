@@ -7,12 +7,9 @@
 {% block body %}
 <div class="content">
   <div class = "wrapper">
-      <!--This button should lead to the rider account page (current page)-->
-	<form action="{{ url_for('rideraccount')}}" method="POST" class="content" >
-		<button type="submit" value="rideraccount">My Account</button>
-	</form>
+   
     <!--This button should lead to the Request Ride page-->
-	<form action="{{ url_for('requestride')}}" method="POST" class="content" >
+	<form action="{{ url_for('rideraccount')}}" method="POST" class="content" >
 		<button type="submit" value="request_ride">Request Ride</button>
 	</form>
   </div>

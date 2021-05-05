@@ -8,26 +8,22 @@
 <div class="content">
   <div class = "wrapper">
       <!--This button should lead to the rider account page-->
-	<form action="{{ url_for('rideraccount')}}" method="POST" class="content" >
-		<button type="submit" value="rideraccount">My Account</button>
-	</form>
-    <!--This button should lead to the Request Ride page (current page)-->
-	<form action="{{ url_for('requestride')}}" method="POST" class="content" >
-		<button type="submit" value="request_ride">Request Ride</button>
+	<form action="{{ url_for('loginnext')}}" method="POST" class="content" >
+		<button type="submit" name="rideraccount" value="rideraccount">My Account</button>
 	</form>
   </div>
 </div>
 <h1>Request Ride</h1>
 <div class="content">
   <div class = "wrapper">
-<form action="{{ url_for('selectdriver')}}" method="POST" class="content" >
+<form action="{{ url_for('loginnext')}}" method="POST" class="content" >
     <b>Starting Location</b>
     <input type="text" name="Starting Location" id="riderStartingLocation" placeholder="starting location">
     <b>Ending Location</b>
     <input type="text" name="Ending Location" id="riderEndingLocation" placeholder="ending location">
     <b>Number of Passengers</b>
     <input type="number" name="Number of Passengers" id="passengerAmount" min="1" max = "4">
-  <button type="submit" value="request_ride">Request Ride</button>
+  <button type="submit" name="request_ride" value="request_ride">Request Ride</button>
 </form>
 </div>
 </div>

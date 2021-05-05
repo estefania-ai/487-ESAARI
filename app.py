@@ -156,13 +156,20 @@ def loginnext():
   if request.method=="GET":
     return render_template('requestride.html')
   if request.method=="POST":
-    return redirect(url_for('selectdriver'))
+    if request.form.get("rideraccount"):
+      return redirect(url_for('rideraccount'))
+    if request.form.get("request_ride"):
+      return redirect(url_for('selectdriver'))
 
 @app.route('/potential/', methods=['POST', "GET"])
 def potential():
   if request.method=="GET":
     return render_template('potentialride.html')
   if request.method=="POST":
+    if request.form.get("dr"):
+      return redirect(url_for('driveraccount'))
+    if request.form.get("request_ride"):
+      return redirect(url_for('selectrider'))
     return redirect(url_for('selectrider'))
   
 @app.route('/chooserider/', methods=['POST', "GET"])
@@ -185,6 +192,7 @@ def selectdriver():
     return render_template('choosedriver.html')
   if request.method=="POST":
     return redirect(url_for('confirmride'))
+    
 
 @app.route('/confirmride/', methods=['POST', "GET"])
 def confirmride():
@@ -198,8 +206,23 @@ def ratedriver():
   if request.method=="GET":
     return render_template('rateride.html')
   if request.method=="POST":
-    pass
+    return redirect(url_for('loginnext'))
 
+
+@app.route('/driveraccount/', methods=['POST', "GET"])
+def driveraccount():
+  if request.method=="GET":
+    return render_template('driveraccount.html')
+  if request.method=="POST":
+    return redirect(url_for('potential'))
+
+
+@app.route('/rideraccount/', methods=['POST', "GET"])
+def rideraccount():
+  if request.method=="GET":
+    return render_template('rideraccount.html')
+  if request.method=="POST":
+    return redirect(url_for('loginnext'))
 
 if __name__ == "__main__":
   app.run(debug=True)
